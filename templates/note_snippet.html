@@ -1,0 +1,15 @@
+ <div class="card">
+        <div class="card-body">
+            <h4 {% if note.finished %} style="text-decoration:line-through;" {% endif %}>{{note.title}}
+                <span class="badge badge-{{ note.get_label_display }}">{{note.due_date}}</span>
+            <span class="icons">
+            {% if note.finished is not True %}
+            <a href="{% url 'finished' note.id %}"><i class="fas fa-check"></i></a>
+            {% else %}
+            <a href="{% url 'undo' note.id %}"><i class="fas fa-times"></i></a>
+            {% endif %}
+            <a href="{% url 'delete' note.id %}"><i class="fas fa-trash" style="color:red;margin-left:10px;"></i></a>
+            </span>
+            </h4>
+        </div>
+ </div>
