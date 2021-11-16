@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
+{% if request.user.is_authenticated %}
 <style>
 h4{
     position: relative;
@@ -52,7 +53,7 @@ h4{
     <div class="row">
         {% for note in todo_list %}
         <div class="col-12 mb-3">
-           {% include "note_snippet.html" with note=note %}
+           {% include "notes/note_snippet.html" with note=note %}
         </div>
         {% endfor %}
     </div>
@@ -63,8 +64,9 @@ h4{
     <div class="row">
         {% for note in finished_list %}
         <div class="col-12 mb-3">
-            {% include "note_snippet.html" with note=note %}
+            {% include "notes/note_snippet.html" with note=note %}
         </div>
         {% endfor %}
     </div>
+  {% endif %}  
 {% endblock content %}

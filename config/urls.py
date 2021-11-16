@@ -21,6 +21,7 @@ from notes import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('notes/', include("notes.urls")),
+    path('users/', include("users.urls")),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL,
